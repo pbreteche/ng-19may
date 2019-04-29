@@ -1,9 +1,14 @@
+<ul>
+  <!-- répète l'élément li pour chaque élément du tableau tasks -->
+  <li *ngFor="let task of tasks">{{ task.name }}</li>
+</ul>
+
 <div>
   <h1>
-    {{ task.name }}
+    {{ currentTask.name }}
   </h1>
   <div>
-    {{ task.status }} : {{ task.deadLine | date:"dd/MM/yyyy"}}
+    {{ currentTask.status }} : {{ currentTask.deadLine | date:"dd/MM/yyyy"}}
   </div>
 </div>
 
