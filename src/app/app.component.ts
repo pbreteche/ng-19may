@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {Task, TaskStatus} from './task';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'todo';
+  task: Task = {
+    name: 'Apprendre Angular',
+    status: TaskStatus.Doing,
+    deadLine: new Date('2019-05-02')
+  };
 }
