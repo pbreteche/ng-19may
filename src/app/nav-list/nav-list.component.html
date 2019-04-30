@@ -1,0 +1,4 @@
+<ul>
+  <!-- répète l'élément li pour chaque élément du tableau tasks -->
+  <li *ngFor="let task of taskList" (click)="select(task)">{{ task.name }}</li>
+</ul>

@@ -1,14 +1,7 @@
-<ul>
-  <!-- répète l'élément li pour chaque élément du tableau tasks -->
-  <li *ngFor="let task of tasks">{{ task.name }}</li>
-</ul>
-
-<div>
-  <h1>
-    {{ currentTask.name }}
-  </h1>
-  <div>
-    {{ currentTask.status }} : {{ currentTask.deadLine | date:"dd/MM/yyyy"}}
-  </div>
-</div>
-
+<header>
+  <h1>Todo list</h1>
+</header>
+<main>
+  <app-nav-list [taskList]="tasks" (taskSelected)="setCurrentTask($event)"></app-nav-list>
+  <app-detail [task]="currentTask"></app-detail>
+</main>

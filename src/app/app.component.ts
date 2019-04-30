@@ -25,4 +25,8 @@ export class AppComponent {
     deadLine: new Date('1965-09-12')
   }];
   currentTask = this.tasks[0];
+
+  setCurrentTask(task: Task) {
+    this.currentTask = task;
+  }
 }
