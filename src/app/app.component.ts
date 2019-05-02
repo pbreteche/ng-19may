@@ -29,4 +29,9 @@ export class AppComponent {
   setCurrentTask(task: Task) {
     this.currentTask = task;
   }
+
+  addTaskToList(task: Task) {
+    this.tasks.unshift(task);
+    this.currentTask = task;
+  }
 }

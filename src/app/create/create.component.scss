@@ -1,0 +1,28 @@
+button {
+  height: 4em;
+  border-radius: 1em;
+  border-style: none;
+  box-shadow: 0 0 .5em grey;
+  background: #3A3 ;
+  vertical-align: middle;
+
+  &:disabled {
+    box-shadow: none;
+    background: grey;
+    color: black;
+    img {
+      filter: grayscale(100%);
+    }
+  }
+}
+
+.ng-invalid.ng-touched {
+  box-shadow: 0 0 .25em darkred;
+}
+
+.error {
+  background: darkred;
+  color: white;
+  font-weight: bold;
+  padding: 1em;
+}

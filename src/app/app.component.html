@@ -4,4 +4,5 @@
 <main>
   <app-nav-list [taskList]="tasks" (taskSelected)="setCurrentTask($event)"></app-nav-list>
   <app-detail [task]="currentTask"></app-detail>
+  <app-create (taskCreated)="addTaskToList($event)"></app-create>
 </main>
