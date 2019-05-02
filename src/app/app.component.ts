@@ -1,36 +1,33 @@
-import {Component} from '@angular/core';
-import {Task, TaskStatus} from './task';
+import {Component, OnInit} from '@angular/core';
+import {Task} from './task';
+import {TaskProviderService} from './task-provider.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  providers: [
+    TaskProviderService,
+  ]
 })
-export class AppComponent {
-  tasks: Array<Task> = [{
-    name: 'Apprendre Angular',
-    status: TaskStatus.Doing,
-    deadLine: new Date('2019-05-02')
-  }, {
-    name: 'Apprendre React',
-    status: TaskStatus.Doing,
-    deadLine: new Date('2019-04-19')
-  }, {
-    name: 'Apprendre Vue',
-    status: TaskStatus.Doing,
-    deadLine: new Date('2019-06-14')
-  }, {
-    name: 'Apprendre le Cobol',
-    status: TaskStatus.Doing,
-    deadLine: new Date('1965-09-12')
-  }];
-  currentTask = this.tasks[0];
+export class AppComponent implements OnInit {
+  tasks: Array<Task> = [];
+  currentTask = new Task();
 
-  setCurrentTask(task: Task) {
+  constructor(public manager: TaskProviderService) {}
+
+  ngOnInit(): void {
+    this.manager.getTasks().subscribe(tasks => {
+      this.tasks = tasks;
+      this.currentTask = this.tasks[0];
+    });
+  }
+
+  setCurrentTask(task: Task): void {
     this.currentTask = task;
   }
 
-  addTaskToList(task: Task) {
+  addTaskToList(task: Task): void {
     this.tasks.unshift(task);
     this.currentTask = task;
   }

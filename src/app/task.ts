@@ -1,7 +1,7 @@
 export enum TaskStatus {
-  ToDo = 'Tomorrow, I begin',
-  Doing = 'doing',
-  Done = 'already done, boss'
+  ToDo,
+  Doing,
+  Done
 }
 
 export class Task {
