@@ -9,9 +9,9 @@ import {StatService} from '../stat.service';
 export class StatComponent implements OnInit {
   private stat = [0, 0, 0];
 
-  constructor(private currentTaskService: StatService) { }
+  constructor(private statService: StatService) { }
 
   ngOnInit() {
-    this.currentTaskService.getStat().subscribe(stat => this.stat = stat);
+    this.statService.getStat().subscribe(stat => this.stat = stat);
   }
 }

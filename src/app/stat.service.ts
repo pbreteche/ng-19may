@@ -12,10 +12,7 @@ export class StatService {
 
   constructor(provider: TaskProviderService) {
     provider.getTasks().subscribe((tasks: Task[]) => {
-      this.data = tasks.reduce((acc, cur) => {
-        acc[cur.status]++;
-        return acc;
-      }, [0, 0, 0]);
+      this.data = tasks.reduce(statReducer, [0, 0, 0]);
       this.statSubject.next(this.data);
     });
   }
@@ -24,3 +21,8 @@ export class StatService {
     return this.statSubject.asObservable();
   }
 }
+
+const statReducer = (acc, cur) => {
+  acc[cur.status]++;
+  return acc;
+};
