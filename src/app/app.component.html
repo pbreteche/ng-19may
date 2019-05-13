@@ -2,7 +2,7 @@
   <h1>Todo list</h1>
 </header>
 <main>
-  <app-nav-list [taskList]="tasks" (taskSelected)="setCurrentTask($event)"></app-nav-list>
-  <app-detail [task]="currentTask"></app-detail>
-  <app-create (taskCreated)="addTaskToList($event)"></app-create>
+  <app-nav-list></app-nav-list>
+  <app-detail></app-detail>
+  <app-create></app-create>
 </main>

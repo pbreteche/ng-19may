@@ -1,5 +1,6 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Task} from '../task';
+import {CurrentTaskService} from '../current-task.service';
 
 @Component({
   selector: 'app-detail',
@@ -8,11 +9,11 @@ import {Task} from '../task';
 })
 export class DetailComponent implements OnInit {
 
-  @Input() task: Task;
+  task = new Task();
 
-  constructor() { }
+  constructor(private currentTaskService: CurrentTaskService) { }
 
   ngOnInit() {
+    this.currentTaskService.getCurrentTask().subscribe(task => this.task = task);
   }
-
 }

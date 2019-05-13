@@ -1,5 +1,7 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Task} from '../task';
+import {TaskProviderService} from '../task-provider.service';
+import {CurrentTaskService} from '../current-task.service';
 
 @Component({
   selector: 'app-nav-list',
@@ -8,16 +10,19 @@ import {Task} from '../task';
 })
 export class NavListComponent implements OnInit {
 
-  @Input() taskList: Array<Task>;
-  @Output() taskSelected = new EventEmitter<Task>();
+  taskList: Array<Task>;
 
-  constructor() { }
+  constructor(
+    private provider: TaskProviderService,
+    private current: CurrentTaskService
+  ) { }
 
   ngOnInit() {
+    this.provider.getTasks().subscribe(tasks => this.taskList = tasks);
   }
 
   select(task: Task) {
     console.log('click on nav list', task);
-    this.taskSelected.emit(task);
+    this.current.define(task);
   }
 }

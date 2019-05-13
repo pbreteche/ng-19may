@@ -1,5 +1,6 @@
-import {Component, EventEmitter, Output} from '@angular/core';
+import {Component} from '@angular/core';
 import {Task} from '../task';
+import {TaskProviderService} from '../task-provider.service';
 
 @Component({
   selector: 'app-create',
@@ -8,11 +9,12 @@ import {Task} from '../task';
 })
 export class CreateComponent {
 
-  @Output() taskCreated = new EventEmitter<Task>();
   newTask = new Task();
 
+  constructor(private provider: TaskProviderService) {}
+
   addTask() {
-    this.taskCreated.emit(this.newTask);
+    this.provider.add(this.newTask);
     this.newTask = new Task();
   }
 }

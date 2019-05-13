@@ -12,9 +12,9 @@
   <div>
     <label for="create[status]">Statut</label>
     <select id="create[status]" name="status" [(ngModel)]="newTask.status">
-      <option value="Todo">À faire</option>
-      <option value="Doing">En cours</option>
-      <option value="Done">Fait</option>
+      <option value="0">À faire</option>
+      <option value="1">En cours</option>
+      <option value="2">Fait</option>
     </select>
   </div>
   <button [disabled]="form.invalid">Encore du travail ?<img src="assets/Peasant.gif" alt="Peasant"></button>
