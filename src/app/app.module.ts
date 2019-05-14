@@ -13,6 +13,7 @@ import { StatComponent } from './stat/stat.component';
 const appRoutes: Routes = [
   { path: 'todolist', component: NavListComponent },
   { path: 'create', component: CreateComponent },
+  { path: 'task/:id', component: DetailComponent },
   { path: '', redirectTo: '/todolist', pathMatch: 'full' }
 ];
 

@@ -5,6 +5,7 @@ export enum TaskStatus {
 }
 
 export class Task {
+  id: number;
   name: string;
   status: TaskStatus;
   deadLine: Date;

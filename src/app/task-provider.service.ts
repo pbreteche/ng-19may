@@ -29,4 +29,10 @@ export class TaskProviderService {
     // notifie tous les abonnés avec la nouvelle version de la liste
     this.tasksSubject.next(this.tasks);
   }
+
+  getById(id: number): Task {
+    const task = this.tasks.find((elt: Task) => elt.id === id);
+    console.log(id, task);
+    return task;
+  }
 }
