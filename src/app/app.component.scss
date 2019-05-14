@@ -10,14 +10,22 @@ header {
   }
 }
 
-main {
-  display: flex;
-}
+nav {
+  ul {
+    list-style-type: none;
+    padding: 0 4ch;
+    margin: 0;
+    display: flex;
+    background: $secondaryColor;
 
-app-nav-list {
-  flex: 0 1 20ch;
-}
+    a {
+      text-decoration: none;
+      display: block;
+      padding: .5em;
 
-app-detail, app-create {
-  flex: 1;
+      &:hover {
+        background: orange;
+      }
+    }
+  }
 }

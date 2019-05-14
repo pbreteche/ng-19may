@@ -1,9 +1,12 @@
 <header>
   <h1>Todo list</h1>
 </header>
+<nav>
+  <ul>
+    <li><a routerLink="todolist">Liste</a></li>
+    <li><a routerLink="create">Création</a></li>
+  </ul>
+</nav>
 <main>
-  <app-nav-list></app-nav-list>
-  <app-detail></app-detail>
-  <app-create></app-create>
-  <app-stat></app-stat>
+  <router-outlet></router-outlet>
 </main>
